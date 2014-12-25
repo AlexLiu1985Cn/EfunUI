@@ -1,7 +1,8 @@
-package com.efun.os;
+package com.efun.os.ui;
 
 import com.efun.os.ui.fragments.LoginFragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -28,7 +29,8 @@ public class PageContainer extends FragmentActivity{
 	
 	private void init(){
 		LinearLayout ll = new LinearLayout(this);
-		LinearLayout.LayoutParams lp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		ll.setBackgroundColor(Color.GRAY);
+		LinearLayout.LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 		ll.setLayoutParams(lp);
 		ll.setId(REPLACED_LAYOUT_ID);
 		setContentView(ll);

@@ -1,11 +1,13 @@
 package com.efun.os.ui.view.base;
 
-import com.efun.core.tools.EfunScreenUtil;
-
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.widget.LinearLayout;
+
+import com.efun.core.tools.EfunScreenUtil;
 
 public class BaseLinearLayout extends LinearLayout{
 	
@@ -42,5 +44,7 @@ public class BaseLinearLayout extends LinearLayout{
 	      this.mMarginSize = (this.mScreanWidth / 50);
 	      this.mIndex = 0;
 	    }
+	    
+	    Log.i("alex","mScreanWidth = " + mScreanWidth + "; mScreanHeight = " + mScreanHeight + "; mIsPhone = " + mIsPhone + "; mIsPortrait" + mIsPortrait + "; mMarginSize = " + mMarginSize);
 	}
 }

@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.efun.os.ui"
+    package="com.efun.os"
     android:versionCode="1"
     android:versionName="1.0" >
 
