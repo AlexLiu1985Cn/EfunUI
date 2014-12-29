@@ -26,19 +26,27 @@ abstract public class BasePageLayout extends BaseLinearLayout {
 
 	private void init(Context context) {
 		setOrientation(LinearLayout.VERTICAL);
-//		setBackgroundColor(Color.GREEN);
-		int height = (int) (this.mScreanHeight * Constant.ViewSize.TITLE_HEIGHT[this.mIndex]);
-		this.mParams = new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT,
-				height);
-		this.mParams.setMargins(0, this.mMarginSize / 2, 0, this.mMarginSize);
+		setBackgroundImp();
+		this.mParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
+		setLayoutParams(mParams);
 		this.mTitleView = initTitleView();
+		setTitleViewParams(mParams);
 		if (this.mTitleView != null) {
 			addView(this.mTitleView, this.mParams);
 		}
 		mContentContainer = new LinearLayout(context);
+		setContentContainerAndParams(mContentContainer, mParams);
+		addView(this.mContentContainer, this.mParams);
+	}
+	
+	protected void setBackgroundImp(){
+		setBackground(BackgroundType.COLOR, Color.GREEN);
+	}
+	
+	protected void setContentContainerAndParams(LinearLayout linearLayout, LinearLayout.LayoutParams layoutParams){
 		mContentContainer.setOrientation(LinearLayout.VERTICAL);
 		mContentContainer.setBackgroundColor(Color.BLUE);
-		height = (int) (this.mScreanHeight * Constant.ViewSize.INPUT_ITEM_HEIGHT[this.mIndex]);
+		int height = (int) (this.mScreanHeight * Constant.ViewSize.INPUT_ITEM_HEIGHT[this.mIndex]);
 		int width = (int) (height * Constant.ViewSize.INPUT_ITEM_WIDTH[this.mIndex]);
 		if (this.mIsPortrait)
 			this.mParams = new LinearLayout.LayoutParams(width * 4,
@@ -47,8 +55,16 @@ abstract public class BasePageLayout extends BaseLinearLayout {
 			this.mParams = new LinearLayout.LayoutParams(width * 2,
 					LayoutParams.FILL_PARENT);
 		}
+		mParams.topMargin = mScreanHeight / 10;
+		mParams.bottomMargin = mScreanHeight / 12;
 		this.mParams.gravity = Gravity.CENTER_HORIZONTAL;
-		addView(this.mContentContainer, this.mParams);
+	}
+	
+	protected void setTitleViewParams(LinearLayout.LayoutParams layoutParams){
+		int height = (int) (this.mScreanHeight * Constant.ViewSize.TITLE_HEIGHT[this.mIndex]);
+		this.mParams = new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT,
+				height);
+		this.mParams.setMargins(0, this.mMarginSize / 2, 0, this.mMarginSize);
 	}
 
 	abstract protected BaseTitleView initTitleView();

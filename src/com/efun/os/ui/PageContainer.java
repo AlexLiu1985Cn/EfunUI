@@ -29,11 +29,10 @@ public class PageContainer extends FragmentActivity{
 	
 	private void init(){
 		LinearLayout ll = new LinearLayout(this);
-		ll.setBackgroundColor(Color.GRAY);
 		LinearLayout.LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 		ll.setLayoutParams(lp);
 		ll.setId(REPLACED_LAYOUT_ID);
 		setContentView(ll);
 	}
-
+	
 }

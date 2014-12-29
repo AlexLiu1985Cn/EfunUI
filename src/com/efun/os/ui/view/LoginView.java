@@ -1,44 +1,40 @@
 package com.efun.os.ui.view;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.efun.core.tools.EfunResourceUtil;
 import com.efun.os.ui.view.base.BasePageLayout;
 import com.efun.os.ui.view.base.BaseTitleView;
 import com.efun.os.util.Constant;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 public class LoginView extends BasePageLayout {
+	
+	private Map<String, Button> mBtns;
+	private String[] mBtnTags;
 
-	private Button btn_fb;
-	private Button btn_mac;
-	private Button btn_efun;
-
-	public LoginView(Context context, AttributeSet attrs) {
+	private LoginView(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		init(context);
+		mBtns = new HashMap<String, Button>();
 	}
 
-	public LoginView(Context context) {
+	private LoginView(Context context) {
 		super(context);
-		init(context);
+		mBtns = new HashMap<String, Button>();
 	}
 
-	private void init(Context context) {
-		initButton(context);
-		int height = (int) (this.mScreanHeight * Constant.ViewSize.INPUT_ITEM_HEIGHT[this.mIndex]);
-		this.mParams = new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT,
-				height);
-		this.mParams.setMargins(this.mMarginSize, this.mMarginSize,
-				this.mMarginSize, 0);
-		this.mContentContainer.addView(this.btn_fb, this.mParams);
-		this.mContentContainer.addView(this.btn_mac, this.mParams);
-		this.mContentContainer.addView(this.btn_efun, this.mParams);
-
+	public void invalide(Context context) {
+		Log.d("alex","login view invalide");
+		int height = 0 ;
 		ImageView logoIV = new ImageView(this.mContext);
 		logoIV.setBackgroundResource(EfunResourceUtil.findDrawableIdByName(
 				this.mContext, "efun_logo"));
@@ -55,22 +51,68 @@ public class LoginView extends BasePageLayout {
 		else {
 			this.mParams.topMargin = (this.mMarginSize * 2);
 		}
-
 		this.mContentContainer.addView(logoIV, 0, this.mParams);
+		
+		height = (int) (this.mScreanHeight * Constant.ViewSize.INPUT_ITEM_HEIGHT[this.mIndex]);
+		this.mParams = new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT,
+				height);
+		this.mParams.setMargins(this.mMarginSize, this.mMarginSize,
+				this.mMarginSize, 0);
+		for(int i = 0; i < mBtnTags.length; i++){
+			this.mContentContainer.addView(mBtns.get(mBtnTags[i]), this.mParams);
+		}
 	}
 	
-	private void initButton(Context context){
-		btn_fb = new Button(context);
-		btn_fb.setText("fbµÇÂ½");
-		btn_mac = new Button(context);
-		btn_mac.setText("macµÇÂ½");
-		btn_efun = new Button(context);
-		btn_efun.setText("efun µÇÂ½");
+	public Map<String, Button> getViewButtons(){
+		return mBtns;
+	}
+	
+	public void setButtonTags(String[] tags){
+		mBtnTags = tags;
 	}
 
 	@Override
 	protected BaseTitleView initTitleView() {
 		return null;
+	}
+
+	@Override
+	protected void setBackgroundImp() {
+		setBackground(BackgroundType.COLOR, Color.GRAY);
+	}
+
+	@Override
+	protected void setContentContainerAndParams(LinearLayout linearLayout,
+			LayoutParams layoutParams) {
+		super.setContentContainerAndParams(linearLayout, layoutParams);
+	}
+
+	public static class LoginViewBuilder {
+		
+		private Context mContext;
+		private LoginView mLoginView;
+		
+		public LoginViewBuilder(Context context) {
+			mContext = context;
+			mLoginView = new LoginView(context);
+		}
+		
+		public LoginViewBuilder setLoginButtons(String[] btnTags){
+			Log.d("alex","builder set login button: this.mLoginView = " + mLoginView);
+			mLoginView.setButtonTags(btnTags);
+			for(int i = 0; i < btnTags.length; i++){
+				Button btn = new Button(mContext);
+				btn.setText(btnTags[i]);
+				mLoginView.getViewButtons().put(btnTags[i], btn);
+			}
+			return this;
+		}
+		
+		public LoginView build(){
+			Log.d("alex","builder build: this.mLoginView = " + mLoginView);
+			mLoginView.invalide(mContext);
+			return mLoginView;
+		}
 	}
 
 }
