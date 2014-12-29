@@ -6,6 +6,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.Gravity;
+import android.view.View;
 import android.widget.LinearLayout;
 
 abstract public class BasePageLayout extends BaseLinearLayout {
@@ -37,6 +38,10 @@ abstract public class BasePageLayout extends BaseLinearLayout {
 		mContentContainer = new LinearLayout(context);
 		setContentContainerAndParams(mContentContainer, mParams);
 		addView(this.mContentContainer, this.mParams);
+	}
+	
+	public View getContentContainer(){
+		return mContentContainer;
 	}
 	
 	protected void setBackgroundImp(){

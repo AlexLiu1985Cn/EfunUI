@@ -14,7 +14,8 @@ public class PageContainer extends FragmentActivity{
 	
 	private FragmentManager fm;
 	
-	private int REPLACED_LAYOUT_ID = 500001;
+	public static int ROOT_LAYOUT_ID = 500001;
+	public static String TAG_EFUN_LOGIN = "tag_efun_login";
 
 	@Override
 	protected void onCreate(Bundle arg0) {
@@ -23,7 +24,7 @@ public class PageContainer extends FragmentActivity{
 		LoginFragment lf = new LoginFragment();
 		fm = getSupportFragmentManager();
 		FragmentTransaction ft = fm.beginTransaction();
-		ft.replace(REPLACED_LAYOUT_ID, lf);
+		ft.replace(ROOT_LAYOUT_ID, lf);
 		ft.commit();
 	}
 	
@@ -31,8 +32,14 @@ public class PageContainer extends FragmentActivity{
 		LinearLayout ll = new LinearLayout(this);
 		LinearLayout.LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 		ll.setLayoutParams(lp);
-		ll.setId(REPLACED_LAYOUT_ID);
+		ll.setId(ROOT_LAYOUT_ID);
 		setContentView(ll);
+	}
+
+	@Override
+	public void onBackPressed() {
+		super.onBackPressed();
+		fm.popBackStack();
 	}
 	
 }
