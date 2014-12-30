@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.LinearLayout;
 
+import com.efun.core.tools.EfunResourceUtil;
 import com.efun.core.tools.EfunScreenUtil;
 
 public class BaseLinearLayout extends LinearLayout {
@@ -65,4 +66,24 @@ public class BaseLinearLayout extends LinearLayout {
 	public static enum BackgroundType {
 		COLOR, RESOURCE
 	}
+
+	public int createDrawable(String filename) {
+		return EfunResourceUtil.findDrawableIdByName(this.mContext, filename);
+	}
+
+//	public String createString(String filename) {
+//		if (Controls.instance().getLanguageBean() == null) {
+//			if (!TextUtils.isEmpty(this.language)) {
+//				filename = this.language + "_" + filename;
+//			}
+//			return EfunResourceUtil.findStringByName(this.mContext, filename);
+//		}
+//		return (String) Controls.instance().getLanguageBean().getValueMaps()
+//				.get(filename);
+//	}
+	
+	public String createString(String filename) {
+		return EfunResourceUtil.findStringByName(this.mContext, filename);
+	}
+	
 }
