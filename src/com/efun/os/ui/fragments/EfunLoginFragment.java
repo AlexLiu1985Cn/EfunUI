@@ -28,7 +28,5 @@ public class EfunLoginFragment extends BaseFragment{
 	public void onDestroy() {
 		super.onDestroy();
 	}
-	
-	
 
 }

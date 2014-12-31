@@ -11,6 +11,7 @@ import com.efun.os.util.Constant;
 import android.content.Context;
 import android.graphics.Color;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -95,37 +96,58 @@ public class LoginView extends BasePageLayout {
 		private Context mContext;
 		private LoginView mLoginView;
 		private View.OnClickListener mCallback;
+		private OnClickListener mClickListener;
 
 		public LoginViewBuilder(Context context) {
+			Log.d("alex", "create login view builder");
 			mContext = context;
-			mLoginView = new LoginView(context);
+			mClickListener = new OnClickListener() {
+
+				@Override
+				public void onClick(View paramView) {
+					if (mCallback != null) {
+						mCallback.onClick(paramView);
+					}
+				}
+			};
 		}
 
-		public LoginViewBuilder setButtonClickCallback(OnClickListener callback){
+		public LoginViewBuilder setButtonClickCallback(OnClickListener callback) {
+			checkMember(mContext);
 			mCallback = callback;
 			return this;
 		}
-		
+
 		public LoginViewBuilder setLoginButtons(String[] btnTags) {
+			checkMember(mContext);
 			mLoginView.setButtonTags(btnTags);
 			for (int i = 0; i < btnTags.length; i++) {
 				Button btn = new Button(mContext);
 				btn.setText(btnTags[i]);
 				mLoginView.getViewButtons().put(btnTags[i], btn);
-				btn.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View paramView) {
-						mCallback.onClick(paramView);
-					}
-				});
+				btn.setOnClickListener(mClickListener);
 			}
 			return this;
 		}
 
 		public LoginView build() {
+			LoginView loginView;
+			checkMember(mContext);
 			mLoginView.invalide(mContext);
-			return mLoginView;
+			Log.d("alex", "mLoginView: " + mLoginView);
+			loginView = mLoginView;
+			mLoginView = null;
+			Log.d("alex", "loginView: " + loginView);
+			Log.d("alex", "mLoginView: " + mLoginView);
+			return loginView;
+		}
+
+		private void checkMember(Context context) {
+			if (mLoginView == null) {
+				mLoginView = new LoginView(context);
+				// Log.d("alex", "mLoginView: " + mLoginView);
+			}
 		}
 	}
-	
+
 }

@@ -2,6 +2,7 @@ package com.efun.os.ui.view.component;
 
 import java.util.ArrayList;
 
+import com.efun.os.ui.view.LoginView;
 import com.efun.os.ui.view.base.BaseLinearLayout;
 
 import android.content.Context;
@@ -17,6 +18,7 @@ import android.graphics.drawable.Drawable;
 import android.text.InputFilter;
 import android.text.InputType;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -136,20 +138,32 @@ public class InputView extends BaseLinearLayout {
 	public static class InputViewBuilder {
 
 		private InputView mInputView;
+		private Context mContext;
 
 		public InputViewBuilder(Context context) {
-			mInputView = new InputView(context);
+			mContext = context;
 		}
 
 		public InputViewBuilder setInputViewConfiguration(
 				InputViewConfiguration config) {
+			checkMember(mContext);
 			mInputView.mConfiguration = config;
 			return this;
 		}
 
 		public InputView build() {
+			InputView inputView;
+			checkMember(mContext);
 			mInputView.invalid();
-			return mInputView;
+			inputView = mInputView;
+			mInputView = null;
+			return inputView;
+		}
+		
+		private void checkMember(Context context){
+			if(mInputView == null){
+				mInputView = new InputView(context);
+			}
 		}
 	}
 
@@ -194,45 +208,59 @@ public class InputView extends BaseLinearLayout {
 			mLayoutParams = null;
 		}
 
-		public void setInputNumbers(int inputNumbers) {
+		public InputViewConfiguration setInputNumbers(int inputNumbers) {
 			mInputNumbers = inputNumbers;
+			return this;
 		}
 
-		public void setInputHints(String[] inputHints) {
+		public InputViewConfiguration setInputHints(String[] inputHints) {
 			mInputHints = inputHints;
+			return this;
 		}
 
-		public void setInputViewBackgorund(String inputBackground) {
+		public InputViewConfiguration setInputViewBackgorund(
+				String inputBackground) {
 			mInputViewBackgorund = inputBackground;
+			return this;
 		}
 
-		public void setInputViewBackgroundCornerPixel(
+		public InputViewConfiguration setInputViewBackgroundCornerPixel(
 				int inputViewBackgroundCornerPixel) {
 			mInputViewBackgroundCornerPixel = inputViewBackgroundCornerPixel;
+			return this;
 		}
 
-		public void setInputViewImeOptions(int[] inputImeOptions) {
+		public InputViewConfiguration setInputViewImeOptions(
+				int[] inputImeOptions) {
 			mInputViewImeOptions = inputImeOptions;
+			return this;
 		}
 
-		public void setInputTextColor(int inputTextColor) {
+		public InputViewConfiguration setInputTextColor(int inputTextColor) {
 			mInputTextColor = inputTextColor;
+			return this;
 		}
 
-		public void setInputHintTextColor(int inputHintTextColor) {
+		public InputViewConfiguration setInputHintTextColor(
+				int inputHintTextColor) {
 			mInputHintTextColor = inputHintTextColor;
+			return this;
 		}
 
-		public void setInputTextSize(float inputTextSize) {
+		public InputViewConfiguration setInputTextSize(float inputTextSize) {
 			mInputTextSize = inputTextSize;
+			return this;
 		}
 
-		public void setInputPasswordType(boolean[] inputPasswordType) {
+		public InputViewConfiguration setInputPasswordType(
+				boolean[] inputPasswordType) {
 			mInputPasswordType = inputPasswordType;
+			return this;
 		}
 
-		public void setLayoutParams(LayoutParams layoutParams) {
+		public InputViewConfiguration setLayoutParams(LayoutParams layoutParams) {
 			mLayoutParams = layoutParams;
+			return this;
 		}
 	}
 }
