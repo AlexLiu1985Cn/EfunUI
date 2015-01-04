@@ -12,7 +12,14 @@ public class Constant {
 				1.798540145985402 };
 		public static final double[] THIRD_LOGIN_BUTTON_HEIGHT = { 0.12D,
 				0.07000000000000001D };
-		public static final double[] TITLE_BACK_HEIGHT = {0.1D, 0.05D};
-		public static final double[] COMMON_BUTTON_HEIGHT = {0.15D, 0.075D};
+		public static final double[] TITLE_BACK_HEIGHT = { 0.1D, 0.05D };
+		public static final double[] COMMON_BUTTON_HEIGHT = { 0.15D, 0.075D };
+	}
+
+	public static class ViewColor {
+		public static final int[] COLORS_BACKGROUND = { 62, 181, 252 };
+		public static final int[] COLORS_COMMON_BUTTON = { 41, 88, 142 };
+		public static final int[] COLORS_UNLINE_TEXT = { 27, 102, 159 };
+		public static final int[] COLORS_INVITE_BACKGROUND = { 234, 237, 244 };
 	}
 }

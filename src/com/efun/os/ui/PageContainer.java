@@ -1,8 +1,6 @@
 package com.efun.os.ui;
 
 import com.efun.os.ui.fragments.LoginFragment;
-
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;

@@ -71,19 +71,23 @@ public class BaseLinearLayout extends LinearLayout {
 		return EfunResourceUtil.findDrawableIdByName(this.mContext, filename);
 	}
 
-//	public String createString(String filename) {
-//		if (Controls.instance().getLanguageBean() == null) {
-//			if (!TextUtils.isEmpty(this.language)) {
-//				filename = this.language + "_" + filename;
-//			}
-//			return EfunResourceUtil.findStringByName(this.mContext, filename);
-//		}
-//		return (String) Controls.instance().getLanguageBean().getValueMaps()
-//				.get(filename);
-//	}
-	
+	// public String createString(String filename) {
+	// if (Controls.instance().getLanguageBean() == null) {
+	// if (!TextUtils.isEmpty(this.language)) {
+	// filename = this.language + "_" + filename;
+	// }
+	// return EfunResourceUtil.findStringByName(this.mContext, filename);
+	// }
+	// return (String) Controls.instance().getLanguageBean().getValueMaps()
+	// .get(filename);
+	// }
+
 	public String createString(String filename) {
 		return EfunResourceUtil.findStringByName(this.mContext, filename);
 	}
-	
+
+	public int color(int[] colors) {
+		return Color.rgb(colors[0], colors[1], colors[2]);
+	}
+
 }
