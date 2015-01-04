@@ -34,7 +34,8 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener 
 		mButtonTags = new String[] { "FB µÇÂ½", "MAC µÇÂ½", "Efun µÇÂ½" };
 		mView = new LoginView.LoginViewBuilder(getActivity())
 				.setLoginButtons(mButtonTags)
-				.setButtonClickCallback(this).build();
+				.build();
+		mView.setClickListener(this);
 		return mView;
 	}
 

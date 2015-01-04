@@ -5,6 +5,7 @@ import com.efun.os.util.Constant;
 import android.content.Context;
 import android.graphics.Color;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -14,6 +15,8 @@ abstract public class BasePageLayout extends BaseLinearLayout {
 	protected BaseTitleView mTitleView;
 	protected LinearLayout.LayoutParams mParams;
 	protected LinearLayout mContentContainer;
+	protected OnClickListener mOnClickListener;
+	protected OnClickListener mFromListener;
 
 	public BasePageLayout(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -24,31 +27,47 @@ abstract public class BasePageLayout extends BaseLinearLayout {
 		super(context);
 		init(context);
 	}
+	
+	public void setClickListener(OnClickListener clickListener){
+		mFromListener = clickListener;
+	}
 
 	private void init(Context context) {
+		mOnClickListener = new OnClickListener() {
+			@Override
+			public void onClick(View paramView) {
+				if (mFromListener != null) {
+					mFromListener.onClick(paramView);
+				}
+			}
+		};
 		setOrientation(LinearLayout.VERTICAL);
 		setBackgroundImp();
-		this.mParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
+		this.mParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,
+				LayoutParams.MATCH_PARENT);
 		setLayoutParams(mParams);
 		this.mTitleView = initTitleView();
 		setTitleViewParams(mParams);
 		if (this.mTitleView != null) {
+			Log.d("alex", "title layoutparams width: " + mParams.width
+					+ "; title layoutparams height: " + mParams.height);
 			addView(this.mTitleView, this.mParams);
 		}
 		mContentContainer = new LinearLayout(context);
 		setContentContainerAndParams(mContentContainer, mParams);
 		addView(this.mContentContainer, this.mParams);
 	}
-	
-	public View getContentContainer(){
+
+	public View getContentContainer() {
 		return mContentContainer;
 	}
-	
-	protected void setBackgroundImp(){
+
+	protected void setBackgroundImp() {
 		setBackground(BackgroundType.COLOR, Color.GREEN);
 	}
-	
-	protected void setContentContainerAndParams(LinearLayout linearLayout, LinearLayout.LayoutParams layoutParams){
+
+	protected void setContentContainerAndParams(LinearLayout linearLayout,
+			LinearLayout.LayoutParams layoutParams) {
 		mContentContainer.setOrientation(LinearLayout.VERTICAL);
 		mContentContainer.setBackgroundColor(Color.BLUE);
 		int height = (int) (this.mScreanHeight * Constant.ViewSize.INPUT_ITEM_HEIGHT[this.mIndex]);
@@ -64,12 +83,12 @@ abstract public class BasePageLayout extends BaseLinearLayout {
 		mParams.bottomMargin = mScreanHeight / 12;
 		this.mParams.gravity = Gravity.CENTER_HORIZONTAL;
 	}
-	
-	protected void setTitleViewParams(LinearLayout.LayoutParams layoutParams){
+
+	protected void setTitleViewParams(LinearLayout.LayoutParams layoutParams) {
 		int height = (int) (this.mScreanHeight * Constant.ViewSize.TITLE_HEIGHT[this.mIndex]);
-		this.mParams = new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT,
+		mParams = new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT,
 				height);
-		this.mParams.setMargins(0, this.mMarginSize / 2, 0, this.mMarginSize);
+		mParams.setMargins(0, this.mMarginSize / 2, 0, this.mMarginSize);
 	}
 
 	abstract protected BaseTitleView initTitleView();

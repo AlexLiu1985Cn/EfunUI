@@ -1,6 +1,13 @@
 <resources>
 
+    <!-- title -->
     <string name="hint_account">Account</string>
     <string name="hint_password">Password</string>
+    <string name="title_login">Login</string>
 
+    <!-- button -->
+    <string name="button_login_btn">Login</string>
+    <string name="button_reset_pwd_btn">Reset Password</string>
+    <string name="button_retrieve_pwd_btn">Ambil kembali password</string>
+	<string name="button_bind_account_btn">Mengikat akun</string>
 </resources>

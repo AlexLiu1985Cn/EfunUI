@@ -35,7 +35,7 @@ public class LoginView extends BasePageLayout {
 		mBtns = new HashMap<String, Button>();
 		mContext = context;
 	}
-
+	
 	public void invalide(Context context) {
 		int height = 0;
 		ImageView logoIV = new ImageView(this.mContext);
@@ -64,6 +64,7 @@ public class LoginView extends BasePageLayout {
 		for (int i = 0; i < mBtnTags.length; i++) {
 			this.mContentContainer
 					.addView(mBtns.get(mBtnTags[i]), this.mParams);
+			mBtns.get(mBtnTags[i]).setOnClickListener(mOnClickListener);
 		}
 	}
 
@@ -95,27 +96,10 @@ public class LoginView extends BasePageLayout {
 
 		private Context mContext;
 		private LoginView mLoginView;
-		private View.OnClickListener mCallback;
-		private OnClickListener mClickListener;
 
 		public LoginViewBuilder(Context context) {
 			Log.d("alex", "create login view builder");
 			mContext = context;
-			mClickListener = new OnClickListener() {
-
-				@Override
-				public void onClick(View paramView) {
-					if (mCallback != null) {
-						mCallback.onClick(paramView);
-					}
-				}
-			};
-		}
-
-		public LoginViewBuilder setButtonClickCallback(OnClickListener callback) {
-			checkMember(mContext);
-			mCallback = callback;
-			return this;
 		}
 
 		public LoginViewBuilder setLoginButtons(String[] btnTags) {
@@ -125,7 +109,6 @@ public class LoginView extends BasePageLayout {
 				Button btn = new Button(mContext);
 				btn.setText(btnTags[i]);
 				mLoginView.getViewButtons().put(btnTags[i], btn);
-				btn.setOnClickListener(mClickListener);
 			}
 			return this;
 		}
@@ -134,18 +117,14 @@ public class LoginView extends BasePageLayout {
 			LoginView loginView;
 			checkMember(mContext);
 			mLoginView.invalide(mContext);
-			Log.d("alex", "mLoginView: " + mLoginView);
 			loginView = mLoginView;
 			mLoginView = null;
-			Log.d("alex", "loginView: " + loginView);
-			Log.d("alex", "mLoginView: " + mLoginView);
 			return loginView;
 		}
 
 		private void checkMember(Context context) {
 			if (mLoginView == null) {
 				mLoginView = new LoginView(context);
-				// Log.d("alex", "mLoginView: " + mLoginView);
 			}
 		}
 	}
