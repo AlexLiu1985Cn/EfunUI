@@ -53,7 +53,6 @@ public class EfunLoginView extends BasePageLayout {
 			e.printStackTrace();
 			return null;
 		}
-		mTitleView.getBackButton().setOnClickListener(mOnClickListener);
 		return mTitleView;
 	}
 
@@ -98,6 +97,7 @@ public class EfunLoginView extends BasePageLayout {
 		mResetPwdBtn.setOnClickListener(mOnClickListener);
 		mRetrievePwdBtn.setOnClickListener(mOnClickListener);
 		mBindAccountBtn.setOnClickListener(mOnClickListener);
+		mTitleView.getBackButton().setOnClickListener(mOnClickListener);
 	}
 
 	private void setFunctionContainer(Context context) {
