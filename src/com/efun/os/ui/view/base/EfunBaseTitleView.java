@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class BaseTitleView extends BaseRelativeLayout {
+public class EfunBaseTitleView extends EfunBaseRelativeLayout {
 
 	private ImageView mBackIV;
 	protected ImageView mSettingIV;
@@ -18,12 +18,12 @@ public class BaseTitleView extends BaseRelativeLayout {
 
 	private TitleViewConfiguration mTitleViewConfig;
 
-	private BaseTitleView(Context context, AttributeSet attrs) {
+	private EfunBaseTitleView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		mTitleViewConfig = new TitleViewConfiguration();
 	}
 
-	private BaseTitleView(Context context) {
+	private EfunBaseTitleView(Context context) {
 		super(context);
 		mTitleViewConfig = new TitleViewConfiguration();
 	}
@@ -86,13 +86,13 @@ public class BaseTitleView extends BaseRelativeLayout {
 	public static class TitleViewBuilder {
 
 		private Context mContext = null;
-		private BaseTitleView mTitleView = null;
+		private EfunBaseTitleView mTitleView = null;
 
 		public TitleViewBuilder(Context context) {
 			this.mContext = context;
 		}
 		
-		public TitleViewBuilder setMember(BaseTitleView titleView){
+		public TitleViewBuilder setMember(EfunBaseTitleView titleView){
 			mTitleView = titleView;
 			return this;
 		}
@@ -121,8 +121,8 @@ public class BaseTitleView extends BaseRelativeLayout {
 			return this;
 		}
 
-		public BaseTitleView build() throws Exception {
-			BaseTitleView retTitleView = null;
+		public EfunBaseTitleView build() throws Exception {
+			EfunBaseTitleView retTitleView = null;
 			checkMember();
 			retTitleView = mTitleView;
 			mTitleView = null;
@@ -135,7 +135,7 @@ public class BaseTitleView extends BaseRelativeLayout {
 
 		private void checkMember() {
 			if (this.mTitleView == null) {
-				this.mTitleView = new BaseTitleView(mContext);
+				this.mTitleView = new EfunBaseTitleView(mContext);
 			}
 		}
 	}

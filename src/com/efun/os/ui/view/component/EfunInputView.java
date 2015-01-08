@@ -3,7 +3,7 @@ package com.efun.os.ui.view.component;
 import java.util.ArrayList;
 
 import com.efun.os.ui.view.LoginView;
-import com.efun.os.ui.view.base.BaseLinearLayout;
+import com.efun.os.ui.view.base.EfunBaseLinearLayout;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -23,16 +23,16 @@ import android.view.Gravity;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
-public class InputView extends BaseLinearLayout {
+public class EfunInputView extends EfunBaseLinearLayout {
 
 	private ArrayList<EditText> mViewOfArray;
 	private InputViewConfiguration mConfiguration;
 
-	private InputView(Context context, AttributeSet attrs) {
+	private EfunInputView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 	}
 
-	private InputView(Context context) {
+	private EfunInputView(Context context) {
 		super(context);
 	}
 
@@ -137,7 +137,7 @@ public class InputView extends BaseLinearLayout {
 
 	public static class InputViewBuilder {
 
-		private InputView mInputView;
+		private EfunInputView mInputView;
 		private Context mContext;
 
 		public InputViewBuilder(Context context) {
@@ -151,8 +151,8 @@ public class InputView extends BaseLinearLayout {
 			return this;
 		}
 
-		public InputView build() {
-			InputView inputView;
+		public EfunInputView build() {
+			EfunInputView inputView;
 			checkMember(mContext);
 			mInputView.invalid();
 			inputView = mInputView;
@@ -162,7 +162,7 @@ public class InputView extends BaseLinearLayout {
 		
 		private void checkMember(Context context){
 			if(mInputView == null){
-				mInputView = new InputView(context);
+				mInputView = new EfunInputView(context);
 			}
 		}
 	}

@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import com.efun.core.tools.EfunResourceUtil;
 import com.efun.core.tools.EfunScreenUtil;
 
-public class BaseLinearLayout extends LinearLayout {
+public class EfunBaseLinearLayout extends LinearLayout {
 
 	protected Context mContext;
 	protected EfunScreenUtil mScreen;
@@ -21,12 +21,12 @@ public class BaseLinearLayout extends LinearLayout {
 	protected boolean mIsPortrait;
 	protected boolean mIsPhone;
 
-	public BaseLinearLayout(Context context, AttributeSet attrs) {
+	public EfunBaseLinearLayout(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		init(context);
 	}
 
-	public BaseLinearLayout(Context context) {
+	public EfunBaseLinearLayout(Context context) {
 		super(context);
 		init(context);
 	}

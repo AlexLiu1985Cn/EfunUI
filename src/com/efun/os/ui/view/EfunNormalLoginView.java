@@ -7,44 +7,44 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.efun.os.ui.view.base.BaseButtonView;
-import com.efun.os.ui.view.base.BaseButtonView.ButtonViewConfiguration;
-import com.efun.os.ui.view.base.BasePageLayout;
-import com.efun.os.ui.view.base.BaseTitleView;
-import com.efun.os.ui.view.component.InputView;
-import com.efun.os.ui.view.component.InputView.InputViewBuilder;
-import com.efun.os.ui.view.component.InputView.InputViewConfiguration;
-import com.efun.os.ui.view.component.UnLineTextView;
+import com.efun.os.ui.view.base.EfunBaseButtonView;
+import com.efun.os.ui.view.base.EfunBaseButtonView.ButtonViewConfiguration;
+import com.efun.os.ui.view.base.EfunBasePageLayout;
+import com.efun.os.ui.view.base.EfunBaseTitleView;
+import com.efun.os.ui.view.component.EfunInputView;
+import com.efun.os.ui.view.component.EfunInputView.InputViewBuilder;
+import com.efun.os.ui.view.component.EfunInputView.InputViewConfiguration;
+import com.efun.os.ui.view.component.EfunUnLineTextView;
 import com.efun.os.util.Constant;
 
-public class EfunLoginView extends BasePageLayout {
+public class EfunNormalLoginView extends EfunBasePageLayout {
 
-	private InputView mInputView;
-	private BaseButtonView mLoginBtn;
-	private BaseButtonView mResetPwdBtn;
-	private BaseButtonView mRetrievePwdBtn;
-	private BaseButtonView mBindAccountBtn;
-	private UnLineTextView registerIV;
+	private EfunInputView mInputView;
+	private EfunBaseButtonView mLoginBtn;
+	private EfunBaseButtonView mResetPwdBtn;
+	private EfunBaseButtonView mRetrievePwdBtn;
+	private EfunBaseButtonView mBindAccountBtn;
+	private EfunUnLineTextView registerIV;
 	private LinearLayout mFunctionContainer;
-	private BaseTitleView mTitleView;
+	private EfunBaseTitleView mTitleView;
 	private int mInputHeight;
 
-	public EfunLoginView(Context context, AttributeSet attrs) {
+	public EfunNormalLoginView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		init(context);
 	}
 
-	public EfunLoginView(Context context) {
+	public EfunNormalLoginView(Context context) {
 		super(context);
 		init(context);
 	}
 
 	@Override
-	protected BaseTitleView initTitleView() {
+	protected EfunBaseTitleView initTitleView() {
 		int height = (int) (this.mScreanHeight * Constant.ViewSize.TITLE_BACK_HEIGHT[mIndex]);
 		int width = height;
 		try {
-			mTitleView = new BaseTitleView.TitleViewBuilder(mContext)
+			mTitleView = new EfunBaseTitleView.TitleViewBuilder(mContext)
 					.setTitleName("title_login")
 					.setBackGroundColor(Color.WHITE)
 					.setBackSize(new int[] { width, height })
@@ -106,7 +106,7 @@ public class EfunLoginView extends BasePageLayout {
 		LinearLayout registContainer = new LinearLayout(context);
 		String str1 = createString("button_register_text_1");
 		String str2 = createString("button_register_text_2");
-		this.registerIV = new UnLineTextView(this.mContext, 2, new String[] {
+		this.registerIV = new EfunUnLineTextView(this.mContext, 2, new String[] {
 				str1, str2 });
 		registContainer.setOrientation(LinearLayout.HORIZONTAL);
 		TextView tempText = new TextView(this.mContext);
@@ -149,7 +149,7 @@ public class EfunLoginView extends BasePageLayout {
 	}
 
 	private void initButtonViews(Context context) {
-		BaseButtonView.ButtonBuilder buttonViewBuilder = new BaseButtonView.ButtonBuilder(
+		EfunBaseButtonView.ButtonBuilder buttonViewBuilder = new EfunBaseButtonView.ButtonBuilder(
 				mContext);
 		int height = (int) (this.mScreanHeight * Constant.ViewSize.COMMON_BUTTON_HEIGHT[mIndex]) / 2;
 		mLoginBtn = buttonViewBuilder
@@ -172,27 +172,27 @@ public class EfunLoginView extends BasePageLayout {
 				.build();
 	}
 
-	public BaseButtonView getLoginBtn() {
+	public EfunBaseButtonView getLoginBtn() {
 		return mLoginBtn;
 	}
 
-	public BaseButtonView getResetBtn() {
+	public EfunBaseButtonView getResetBtn() {
 		return mResetPwdBtn;
 	}
 
-	public BaseButtonView getRetrieveBtn() {
+	public EfunBaseButtonView getRetrieveBtn() {
 		return mRetrievePwdBtn;
 	}
 
-	public BaseButtonView getBindBtn() {
+	public EfunBaseButtonView getBindBtn() {
 		return mBindAccountBtn;
 	}
 
-	public UnLineTextView getRegisterBtn() {
+	public EfunUnLineTextView getRegisterBtn() {
 		return registerIV;
 	}
 
-	public BaseTitleView getTitleView() {
+	public EfunBaseTitleView getTitleView() {
 		return mTitleView;
 	}
 }

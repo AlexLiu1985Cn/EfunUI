@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.efun.core.tools.EfunResourceUtil;
-import com.efun.os.ui.view.base.BasePageLayout;
-import com.efun.os.ui.view.base.BaseTitleView;
+import com.efun.os.ui.view.base.EfunBasePageLayout;
+import com.efun.os.ui.view.base.EfunBaseTitleView;
 import com.efun.os.util.Constant;
 
 import android.content.Context;
@@ -17,7 +17,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-public class LoginView extends BasePageLayout {
+public class LoginView extends EfunBasePageLayout {
 
 	private Map<String, Button> mBtns;
 	private String[] mBtnTags;
@@ -76,7 +76,7 @@ public class LoginView extends BasePageLayout {
 	}
 
 	@Override
-	protected BaseTitleView initTitleView() {
+	protected EfunBaseTitleView initTitleView() {
 		return null;
 	}
 

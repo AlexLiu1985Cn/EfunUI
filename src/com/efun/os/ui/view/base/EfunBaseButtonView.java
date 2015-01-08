@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class BaseButtonView extends BaseRelativeLayout {
+public class EfunBaseButtonView extends EfunBaseRelativeLayout {
 
 	private ButtonViewConfiguration mButtonConfig;
 
@@ -15,12 +15,12 @@ public class BaseButtonView extends BaseRelativeLayout {
 	private TextView contentIV;
 	private ImageView rightIV;
 
-	private BaseButtonView(Context context, AttributeSet attrs) {
+	private EfunBaseButtonView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		mButtonConfig = new ButtonViewConfiguration();
 	}
 
-	private BaseButtonView(Context context) {
+	private EfunBaseButtonView(Context context) {
 		super(context);
 		mButtonConfig = new ButtonViewConfiguration();
 	}
@@ -91,14 +91,14 @@ public class BaseButtonView extends BaseRelativeLayout {
 	public static class ButtonBuilder {
 
 		private Context mContext = null;
-		private BaseButtonView mBaseButtonView = null;
+		private EfunBaseButtonView mBaseButtonView = null;
 
 		public ButtonBuilder(Context context) {
 			mContext = context;
 			
 		}
 
-		public ButtonBuilder setMember(BaseButtonView buttonView) {
+		public ButtonBuilder setMember(EfunBaseButtonView buttonView) {
 			mBaseButtonView = buttonView;
 			return this;
 		}
@@ -158,8 +158,8 @@ public class BaseButtonView extends BaseRelativeLayout {
 			return this;
 		}
 
-		public BaseButtonView build() {
-			BaseButtonView retButtonView = null;
+		public EfunBaseButtonView build() {
+			EfunBaseButtonView retButtonView = null;
 			checkMember();
 			retButtonView = mBaseButtonView;
 			mBaseButtonView = null;
@@ -169,7 +169,7 @@ public class BaseButtonView extends BaseRelativeLayout {
 
 		private void checkMember() {
 			if (mBaseButtonView == null) {
-				mBaseButtonView = new BaseButtonView(mContext);
+				mBaseButtonView = new EfunBaseButtonView(mContext);
 			}
 		}
 	}

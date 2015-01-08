@@ -12,7 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class BaseFragment extends Fragment {
+public class EfunBaseFragment extends Fragment {
 
 	protected FragmentManager mFm;
 	protected Context mContext;

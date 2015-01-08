@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.RelativeLayout;
 
-public class BaseRelativeLayout extends RelativeLayout{
+public class EfunBaseRelativeLayout extends RelativeLayout{
 
 	protected Context mContext;
 	protected EfunScreenUtil mScreen;
@@ -21,12 +21,12 @@ public class BaseRelativeLayout extends RelativeLayout{
 	protected boolean mIsPhone;
 
 	
-	public BaseRelativeLayout(Context context, AttributeSet attrs) {
+	public EfunBaseRelativeLayout(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		init(context);
 	}
 	
-	public BaseRelativeLayout(Context context) {
+	public EfunBaseRelativeLayout(Context context) {
 		super(context);
 		init(context);
 	}

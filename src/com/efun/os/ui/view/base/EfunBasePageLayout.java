@@ -10,20 +10,20 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
 
-abstract public class BasePageLayout extends BaseLinearLayout {
+abstract public class EfunBasePageLayout extends EfunBaseLinearLayout {
 
-	protected BaseTitleView mTitleView;
+	protected EfunBaseTitleView mTitleView;
 	protected LinearLayout.LayoutParams mParams;
 	protected LinearLayout mContentContainer;
 	protected OnClickListener mOnClickListener;
 	protected OnClickListener mFromListener;
 
-	public BasePageLayout(Context context, AttributeSet attrs) {
+	public EfunBasePageLayout(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		init(context);
 	}
 
-	public BasePageLayout(Context context) {
+	public EfunBasePageLayout(Context context) {
 		super(context);
 		init(context);
 	}
@@ -91,6 +91,6 @@ abstract public class BasePageLayout extends BaseLinearLayout {
 		mParams.setMargins(0, this.mMarginSize / 2, 0, this.mMarginSize);
 	}
 
-	abstract protected BaseTitleView initTitleView();
+	abstract protected EfunBaseTitleView initTitleView();
 
 }

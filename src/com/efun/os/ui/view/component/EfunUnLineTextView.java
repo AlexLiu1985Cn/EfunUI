@@ -9,10 +9,10 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.efun.os.ui.view.base.BaseLinearLayout;
+import com.efun.os.ui.view.base.EfunBaseLinearLayout;
 import com.efun.os.util.Constant;
 
-public class UnLineTextView extends BaseLinearLayout {
+public class EfunUnLineTextView extends EfunBaseLinearLayout {
 
 	private TextView itemNo1;
 	private TextView itemNo2;
@@ -22,11 +22,11 @@ public class UnLineTextView extends BaseLinearLayout {
 	public static final int MODE_0_BLUE = 0;
 	private String[] values;
 
-	public UnLineTextView(Context context, AttributeSet attrs) {
+	public EfunUnLineTextView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 	}
 
-	public UnLineTextView(Context context, int mode, String[] values) {
+	public EfunUnLineTextView(Context context, int mode, String[] values) {
 		super(context);
 		this.mode = mode;
 		this.values = values;
