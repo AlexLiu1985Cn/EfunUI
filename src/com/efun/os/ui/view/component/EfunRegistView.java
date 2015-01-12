@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.util.AttributeSet;
 
+import com.efun.os.ui.view.base.EfunBaseButtonView;
 import com.efun.os.ui.view.base.EfunBasePageLayout;
 import com.efun.os.ui.view.base.EfunBaseTitleView;
 import com.efun.os.util.Constant;
@@ -11,6 +12,7 @@ import com.efun.os.util.Constant;
 public class EfunRegistView extends EfunBasePageLayout{
 	
 	private EfunInputView mInputLayoutView;
+	private EfunBaseButtonView mRegisterBtn;
 
 	public EfunRegistView(Context context, AttributeSet attrs) {
 		super(context, attrs);
