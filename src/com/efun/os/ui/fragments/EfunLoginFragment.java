@@ -53,5 +53,4 @@ public class EfunLoginFragment extends EfunBaseFragment implements View.OnClickL
 			startFragment(new EfunNormalLoginFragment(), PageContainer.TAG_EFUN_LOGIN);
 		}
 	}
-
 }

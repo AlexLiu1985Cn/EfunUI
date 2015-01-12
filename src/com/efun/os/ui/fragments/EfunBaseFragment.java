@@ -8,11 +8,12 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class EfunBaseFragment extends Fragment {
+abstract public class EfunBaseFragment extends Fragment {
 
 	protected FragmentManager mFm;
 	protected Context mContext;
@@ -34,7 +35,7 @@ public class EfunBaseFragment extends Fragment {
 	public void onDestroy() {
 		super.onDestroy();
 	}
-
+	
 	protected void startFragment(Fragment fgt, String tag, String values) {
 		Bundle bundle = new Bundle();
 		bundle.putString("data", values);
@@ -50,6 +51,7 @@ public class EfunBaseFragment extends Fragment {
 				EfunResourceUtil.findAnimIdByName(mContext, "efun_ui_fragment_enter_back"), 
 				EfunResourceUtil.findAnimIdByName(mContext, "efun_ui_fragment_exit_back"));
 		ft.addToBackStack(null);
+		Log.d("alex", "fragment id = " + this.getId());
 		ft.replace(PageContainer.ROOT_LAYOUT_ID, fgt, tag);
 		ft.commitAllowingStateLoss();
 	}
