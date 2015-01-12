@@ -45,11 +45,6 @@ public class EfunBaseRelativeLayout extends RelativeLayout{
 			this.mMarginSize = (this.mScreanWidth / 50);
 			this.mIndex = 0;
 		}
-
-		Log.i("alex", "mScreanWidth = " + mScreanWidth + "; mScreanHeight = "
-				+ mScreanHeight + "; mIsPhone = " + mIsPhone + "; "
-				+ "mIsPortrait" + mIsPortrait + "; " + "mMarginSize = "
-				+ mMarginSize);
 	}
 	
 	protected void setBackground(BackgroundType type, int res) {

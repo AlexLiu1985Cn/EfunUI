@@ -5,7 +5,6 @@ import com.efun.os.util.Constant;
 import android.content.Context;
 import android.graphics.Color;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -49,8 +48,6 @@ abstract public class EfunBasePageLayout extends EfunBaseLinearLayout {
 		this.mTitleView = initTitleView();
 		setTitleViewParams(mParams);
 		if (this.mTitleView != null) {
-			Log.d("alex", "title layoutparams width: " + mParams.width
-					+ "; title layoutparams height: " + mParams.height);
 			addView(this.mTitleView, this.mParams);
 		}
 		mContentContainer = new LinearLayout(context);

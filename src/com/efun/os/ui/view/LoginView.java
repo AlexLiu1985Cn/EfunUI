@@ -97,7 +97,6 @@ public class LoginView extends EfunBasePageLayout {
 		private LoginView mLoginView;
 
 		public LoginViewBuilder(Context context) {
-			Log.d("alex", "create login view builder");
 			mContext = context;
 		}
 

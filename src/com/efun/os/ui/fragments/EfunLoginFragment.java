@@ -28,6 +28,7 @@ public class EfunLoginFragment extends EfunBaseFragment implements View.OnClickL
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
+		Log.d("alex", EfunLoginFragment.class + ": onCreateView");
 		mButtonTags = new String[] { "FB µÇÂ½", "MAC µÇÂ½", "Efun µÇÂ½" };
 		mView = new LoginView.LoginViewBuilder(getActivity())
 				.setLoginButtons(mButtonTags)
@@ -50,7 +51,7 @@ public class EfunLoginFragment extends EfunBaseFragment implements View.OnClickL
 			Toast.makeText(getActivity(), "EFUN Login", Toast.LENGTH_SHORT)
 					.show();
 			Log.i("alex", "EFUN Login");
-			startFragment(new EfunNormalLoginFragment(), PageContainer.TAG_EFUN_LOGIN);
+			((PageContainer)getActivity()).startFragment(new EfunNormalLoginFragment(), PageContainer.TAG_EFUN_LOGIN);
 		}
 	}
 }

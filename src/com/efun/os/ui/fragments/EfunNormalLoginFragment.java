@@ -22,6 +22,7 @@ public class EfunNormalLoginFragment extends EfunBaseFragment implements OnClick
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
+		Log.d("alex", EfunNormalLoginFragment.class + ": onCreateView");
 		mEfunLoginView = new EfunNormalLoginView(getActivity());
 		mEfunLoginView.setClickListener(this);
 		return mEfunLoginView;
@@ -38,7 +39,7 @@ public class EfunNormalLoginFragment extends EfunBaseFragment implements OnClick
 			Log.d("alex", "login");
 		}else if(paramView == mEfunLoginView.getRegisterBtn()){
 			Log.d("alex", "regist");
-			startFragment(new EfunRegistFragment(), PageContainer.TAG_EFUN_REGIST);
+			((PageContainer)getActivity()).startFragment(new EfunRegistFragment(), PageContainer.TAG_EFUN_REGIST);
 		}else if(paramView == mEfunLoginView.getResetBtn()){
 			Log.d("alex", "reset");
 		}else if(paramView == mEfunLoginView.getRetrieveBtn()){
