@@ -89,5 +89,9 @@ abstract public class EfunBasePageLayout extends EfunBaseLinearLayout {
 	}
 
 	abstract protected EfunBaseTitleView initTitleView();
+	
+	public EfunBaseTitleView getTitleView(){
+		return mTitleView;
+	}
 
 }

@@ -2,7 +2,6 @@ package com.efun.os.ui.view.component;
 
 import java.util.ArrayList;
 
-import com.efun.os.ui.view.LoginView;
 import com.efun.os.ui.view.base.EfunBaseLinearLayout;
 
 import android.content.Context;
@@ -18,7 +17,6 @@ import android.graphics.drawable.Drawable;
 import android.text.InputFilter;
 import android.text.InputType;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.Gravity;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -62,7 +60,7 @@ public class EfunInputView extends EfunBaseLinearLayout {
 	}
 
 	private void createInputs() {
-		this.mViewOfArray = new ArrayList();
+		this.mViewOfArray = new ArrayList<EditText>();
 		EditText itemInputView = null;
 		LinearLayout.LayoutParams params;
 		if (mConfiguration.mLayoutParams == null) {
@@ -109,7 +107,7 @@ public class EfunInputView extends EfunBaseLinearLayout {
 					.setFilters(new InputFilter[] { new InputFilter.LengthFilter(
 							60) });
 			if (mConfiguration.mInputPasswordType != null) {
-				if (mConfiguration.mInputPasswordType[i] == true) {
+				if (mConfiguration.mInputPasswordType[i]) {
 					itemInputView.setInputType(InputType.TYPE_CLASS_TEXT
 							| InputType.TYPE_TEXT_VARIATION_PASSWORD);
 				}

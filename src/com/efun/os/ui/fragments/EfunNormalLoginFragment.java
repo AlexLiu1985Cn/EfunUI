@@ -48,6 +48,7 @@ public class EfunNormalLoginFragment extends EfunBaseFragment implements OnClick
 			Log.d("alex", "bind");
 		}else if(paramView == mEfunLoginView.getTitleView().getBackButton()){
 			Log.d("alex", "back");
+			finishFragment();
 		}
 	}
 

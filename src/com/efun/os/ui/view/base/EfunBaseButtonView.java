@@ -17,12 +17,10 @@ public class EfunBaseButtonView extends EfunBaseRelativeLayout {
 
 	private EfunBaseButtonView(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		mButtonConfig = new ButtonViewConfiguration();
 	}
 
 	private EfunBaseButtonView(Context context) {
 		super(context);
-		mButtonConfig = new ButtonViewConfiguration();
 	}
 
 	private void invalid(Context context) {
@@ -81,6 +79,9 @@ public class EfunBaseButtonView extends EfunBaseRelativeLayout {
 	}
 
 	public ButtonViewConfiguration getConifguration() {
+		if (mButtonConfig == null) {
+			mButtonConfig = new ButtonViewConfiguration();
+		}
 		return mButtonConfig;
 	}
 
@@ -95,7 +96,6 @@ public class EfunBaseButtonView extends EfunBaseRelativeLayout {
 
 		public ButtonBuilder(Context context) {
 			mContext = context;
-			
 		}
 
 		public ButtonBuilder setMember(EfunBaseButtonView buttonView) {
@@ -187,32 +187,42 @@ public class EfunBaseButtonView extends EfunBaseRelativeLayout {
 		private String mRightResourceName;
 		private String mBackgroundResourceName = null;
 
-		public void setButtonType(int btnType) {
+		public ButtonViewConfiguration() {
+
+		}
+
+		public ButtonViewConfiguration setButtonType(int btnType) {
 			mBtnType = btnType;
+			return this;
 		}
 
 		public int getButtonType() {
 			return mBtnType;
 		}
 
-		public void setContentName(String contentName) {
+		public ButtonViewConfiguration setContentName(String contentName) {
 			mContentName = contentName;
+			return this;
 		}
 
 		public String getContentName() {
 			return mContentName;
 		}
 
-		public void setLeftResouceName(String leftResourceName) {
+		public ButtonViewConfiguration setLeftResouceName(
+				String leftResourceName) {
 			mLeftResourceName = leftResourceName;
+			return this;
 		}
 
 		public String getLeftResouceName() {
 			return mLeftResourceName;
 		}
 
-		public void setRightResouceName(String rightResourceName) {
+		public ButtonViewConfiguration setRightResouceName(
+				String rightResourceName) {
 			mRightResourceName = rightResourceName;
+			return this;
 		}
 
 		public String getRightResouceName() {
@@ -223,24 +233,28 @@ public class EfunBaseButtonView extends EfunBaseRelativeLayout {
 			return mLeftSize;
 		}
 
-		public void setLeftSize(int[] leftSize) {
+		public ButtonViewConfiguration setLeftSize(int[] leftSize) {
 			mLeftSize = leftSize;
+			return this;
 		}
 
 		public int[] getRightSize() {
 			return mRightSize;
 		}
 
-		public void setRightSize(int[] rightSize) {
+		public ButtonViewConfiguration setRightSize(int[] rightSize) {
 			mRightSize = rightSize;
+			return this;
 		}
 
 		public String getBackgroundResourceName() {
 			return mBackgroundResourceName;
 		}
 
-		public void setBackgroundResourceName(String backgroundResourceName) {
+		public ButtonViewConfiguration setBackgroundResourceName(
+				String backgroundResourceName) {
 			mBackgroundResourceName = backgroundResourceName;
+			return this;
 		}
 	}
 }

@@ -3,7 +3,6 @@ package com.efun.os.ui.view;
 import android.content.Context;
 import android.graphics.Color;
 import android.util.AttributeSet;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -26,7 +25,6 @@ public class EfunNormalLoginView extends EfunBasePageLayout {
 	private EfunBaseButtonView mBindAccountBtn;
 	private EfunUnLineTextView registerIV;
 	private LinearLayout mFunctionContainer;
-	private EfunBaseTitleView mTitleView;
 	private int mInputHeight;
 
 	public EfunNormalLoginView(Context context, AttributeSet attrs) {
@@ -45,7 +43,7 @@ public class EfunNormalLoginView extends EfunBasePageLayout {
 		int width = height;
 		try {
 			mTitleView = new EfunBaseTitleView.TitleViewBuilder(mContext)
-					.setTitleName("title_login")
+					.setTitleName("efun_ui_title_login")
 					.setBackGroundColor(Color.WHITE)
 					.setBackSize(new int[] { width, height })
 					.setHasButton(false).build();
@@ -58,8 +56,8 @@ public class EfunNormalLoginView extends EfunBasePageLayout {
 
 	private void init(Context context) {
 		mInputView = new InputViewBuilder(mContext).setInputViewConfiguration(
-				new InputViewConfiguration(2, new String[] { "hint_account",
-						"hint_password" }, "efun_ui_input_2_bg", new int[] { 5,
+				new InputViewConfiguration(2, new String[] { "efun_ui_hint_account",
+						"efun_ui_hint_password" }, "efun_ui_input_2_bg", new int[] { 5,
 						6 }, new boolean[] { false, true })).build();
 
 		mInputHeight = (int) (this.mScreanHeight * Constant.ViewSize.INPUT_ITEM_HEIGHT[this.mIndex]);
@@ -104,8 +102,8 @@ public class EfunNormalLoginView extends EfunBasePageLayout {
 		mFunctionContainer = new LinearLayout(context);
 		mFunctionContainer.setOrientation(LinearLayout.VERTICAL);
 		LinearLayout registContainer = new LinearLayout(context);
-		String str1 = createString("button_register_text_1");
-		String str2 = createString("button_register_text_2");
+		String str1 = createString("efun_ui_button_register_text_1");
+		String str2 = createString("efun_ui_button_register_text_2");
 		this.registerIV = new EfunUnLineTextView(this.mContext, 2, new String[] {
 				str1, str2 });
 		registContainer.setOrientation(LinearLayout.HORIZONTAL);
@@ -154,20 +152,20 @@ public class EfunNormalLoginView extends EfunBasePageLayout {
 		int height = (int) (this.mScreanHeight * Constant.ViewSize.COMMON_BUTTON_HEIGHT[mIndex]) / 2;
 		mLoginBtn = buttonViewBuilder
 				.setButtonType(ButtonViewConfiguration.BUTTON_TYPE_RIGHT)
-				.setButtonContentName("button_login_btn")
+				.setButtonContentName("efun_ui_button_login_btn")
 				.setButtonRightResourceName("efun_ui_button_right_arrow")
 				.setButtonBackGorundResource("efun_ui_btn_selecter")
 				.setButtonRightSize(new int[] { height, height }).build();
 		mResetPwdBtn = buttonViewBuilder
-				.setButtonContentName("button_reset_pwd_btn")
+				.setButtonContentName("efun_ui_button_reset_pwd_btn")
 				.setButtonBackGorundResource("efun_ui_third_btn_selecter")
 				.build();
 		mRetrievePwdBtn = buttonViewBuilder
-				.setButtonContentName("button_retrieve_pwd_btn")
+				.setButtonContentName("efun_ui_button_retrieve_pwd_btn")
 				.setButtonBackGorundResource("efun_ui_third_btn_selecter")
 				.build();
 		mBindAccountBtn = buttonViewBuilder
-				.setButtonContentName("button_bind_account_btn")
+				.setButtonContentName("efun_ui_button_bind_account_btn")
 				.setButtonBackGorundResource("efun_ui_third_btn_selecter")
 				.build();
 	}
