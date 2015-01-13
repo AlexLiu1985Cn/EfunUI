@@ -1,7 +1,7 @@
 package com.efun.os.ui.fragments;
 
 import com.efun.os.ui.PageContainer;
-import com.efun.os.ui.view.LoginView;
+import com.efun.os.ui.view.EfunLoginView;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class EfunLoginFragment extends EfunBaseFragment implements View.OnClickListener {
 
-	private LoginView mView;
+	private EfunLoginView mView;
 	private String[] mButtonTags;
 
 	@Override
@@ -30,7 +30,7 @@ public class EfunLoginFragment extends EfunBaseFragment implements View.OnClickL
 			Bundle savedInstanceState) {
 		Log.d("alex", EfunLoginFragment.class + ": onCreateView");
 		mButtonTags = new String[] { "FB µÇÂ½", "MAC µÇÂ½", "Efun µÇÂ½" };
-		mView = new LoginView.LoginViewBuilder(getActivity())
+		mView = new EfunLoginView.LoginViewBuilder(getActivity())
 				.setLoginButtons(mButtonTags)
 				.build();
 		mView.setClickListener(this);

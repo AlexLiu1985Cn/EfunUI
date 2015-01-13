@@ -22,7 +22,10 @@ public class PageContainer extends FragmentActivity {
 	public static String TAG_EFUN_NORMAL_LOGIN = "tag_efun_normal_login";
 	public static String TAG_EFUN_LOGIN = "tag_efun_login";
 	public static String TAG_EFUN_REGIST = "tag_efun_regist";
-
+	public static String TAG_EFUN_BIND = "tag_efun_bind";
+	public static String TAG_EFUN_RESET = "tag_efun_reset";
+	public static String TAG_EFUN_RETRIEVE = "tag_efun_retrieve";
+	
 	@Override
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);

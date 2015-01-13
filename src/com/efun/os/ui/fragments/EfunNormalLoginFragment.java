@@ -42,10 +42,13 @@ public class EfunNormalLoginFragment extends EfunBaseFragment implements OnClick
 			((PageContainer)getActivity()).startFragment(new EfunRegistFragment(), PageContainer.TAG_EFUN_REGIST);
 		}else if(paramView == mEfunLoginView.getResetBtn()){
 			Log.d("alex", "reset");
+			((PageContainer)getActivity()).startFragment(new EfunResetPasswordFragment(), PageContainer.TAG_EFUN_RESET);
 		}else if(paramView == mEfunLoginView.getRetrieveBtn()){
 			Log.d("alex", "retrieve");
+			((PageContainer)getActivity()).startFragment(new EfunRtrievePasswordFragment(), PageContainer.TAG_EFUN_RETRIEVE);
 		}else if(paramView == mEfunLoginView.getBindBtn()){
 			Log.d("alex", "bind");
+			((PageContainer)getActivity()).startFragment(new EfunBindAccountFragment(), PageContainer.TAG_EFUN_BIND);
 		}else if(paramView == mEfunLoginView.getTitleView().getBackButton()){
 			Log.d("alex", "back");
 			finishFragment();

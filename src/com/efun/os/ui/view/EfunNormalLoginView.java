@@ -56,9 +56,10 @@ public class EfunNormalLoginView extends EfunBasePageLayout {
 
 	private void init(Context context) {
 		mInputView = new InputViewBuilder(mContext).setInputViewConfiguration(
-				new InputViewConfiguration(2, new String[] { "efun_ui_hint_account",
-						"efun_ui_hint_password" }, "efun_ui_input_2_bg", new int[] { 5,
-						6 }, new boolean[] { false, true })).build();
+				new InputViewConfiguration(2, new String[] {
+						"efun_ui_hint_account", "efun_ui_hint_password" },
+						"efun_ui_input_2_bg", new int[] { 5, 6 },
+						new boolean[] { false, true })).build();
 
 		mInputHeight = (int) (this.mScreanHeight * Constant.ViewSize.INPUT_ITEM_HEIGHT[this.mIndex]);
 		this.mParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,
@@ -86,10 +87,10 @@ public class EfunNormalLoginView extends EfunBasePageLayout {
 		// this.mContainerLayout.addView(tempLayout, this.params);
 		// }
 		initOnClickListener();
-		
+
 	}
-	
-	private void initOnClickListener(){
+
+	private void initOnClickListener() {
 		registerIV.setOnClickListener(mOnClickListener);
 		mLoginBtn.setOnClickListener(mOnClickListener);
 		mResetPwdBtn.setOnClickListener(mOnClickListener);
@@ -104,20 +105,23 @@ public class EfunNormalLoginView extends EfunBasePageLayout {
 		LinearLayout registContainer = new LinearLayout(context);
 		String str1 = createString("efun_ui_button_register_text_1");
 		String str2 = createString("efun_ui_button_register_text_2");
-		this.registerIV = new EfunUnLineTextView(this.mContext, 2, new String[] {
-				str1, str2 });
+		this.registerIV = new EfunUnLineTextView(this.mContext, 2,
+				new String[] { str1, str2 });
 		registContainer.setOrientation(LinearLayout.HORIZONTAL);
 		TextView tempText = new TextView(this.mContext);
 		LinearLayout.LayoutParams param = new LayoutParams(
 				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, 1.0F);
 		registContainer.addView(tempText, param);
-		param = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		param = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT,
+				LayoutParams.WRAP_CONTENT);
 		registContainer.addView(this.registerIV, param);
-		
+
 		if (this.mIsPortrait) {
-			param = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, mInputHeight);
+			param = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,
+					mInputHeight);
 		} else {
-			param = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+			param = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,
+					LayoutParams.WRAP_CONTENT);
 		}
 		this.mFunctionContainer.addView(registContainer, param);
 		mContentContainer.addView(mFunctionContainer, param);
@@ -152,20 +156,20 @@ public class EfunNormalLoginView extends EfunBasePageLayout {
 		int height = (int) (this.mScreanHeight * Constant.ViewSize.COMMON_BUTTON_HEIGHT[mIndex]) / 2;
 		mLoginBtn = buttonViewBuilder
 				.setButtonType(ButtonViewConfiguration.BUTTON_TYPE_RIGHT)
-				.setButtonContentName("efun_ui_button_login_btn")
+				.setButtonContentName("efun_ui_button_login")
 				.setButtonRightResourceName("efun_ui_button_right_arrow")
 				.setButtonBackGorundResource("efun_ui_btn_selecter")
 				.setButtonRightSize(new int[] { height, height }).build();
 		mResetPwdBtn = buttonViewBuilder
-				.setButtonContentName("efun_ui_button_reset_pwd_btn")
+				.setButtonContentName("efun_ui_button_reset")
 				.setButtonBackGorundResource("efun_ui_third_btn_selecter")
 				.build();
 		mRetrievePwdBtn = buttonViewBuilder
-				.setButtonContentName("efun_ui_button_retrieve_pwd_btn")
+				.setButtonContentName("efun_ui_button_retrieve")
 				.setButtonBackGorundResource("efun_ui_third_btn_selecter")
 				.build();
 		mBindAccountBtn = buttonViewBuilder
-				.setButtonContentName("efun_ui_button_bind_account_btn")
+				.setButtonContentName("efun_ui_button_bind")
 				.setButtonBackGorundResource("efun_ui_third_btn_selecter")
 				.build();
 	}

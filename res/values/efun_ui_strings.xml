@@ -3,18 +3,27 @@
     <!-- title -->
     <string name="efun_ui_title_login">Login</string>
     <string name="efun_ui_title_regist">Regist</string>
+    <string name="efun_ui_title_bind_account">Mengikat akun</string>
+    <string name="efun_ui_title_retrieve">Ambil kembali password</string>
+    
     <!-- hint -->
     <string name="efun_ui_hint_account">Account</string>
     <string name="efun_ui_hint_password">Password</string>
     <string name="efun_ui_hint_confirn_password">Passwordk dimasukkan ulang</string>
     <string name="efun_ui_hint_email">Email(opsional)</string>
+    <string name="efun_ui_hint_old_password">Password asli</string>
+    <string name="efun_ui_hint_new_password">Password baru</string>
+    <string name="efun_ui_hint_confirm_new_password">Password baru dikonfirmasi</string>
+    
     <!-- button -->
-    <string name="efun_ui_button_login_btn">Login</string>
-    <string name="efun_ui_button_reset_pwd_btn">Reset Password</string>
-    <string name="efun_ui_button_retrieve_pwd_btn">Ambil kembali password</string>
-    <string name="efun_ui_button_bind_account_btn">Mengikat akun</string>
+    <string name="efun_ui_button_login">Login</string>
+    <string name="efun_ui_button_reset">Reset Password</string>
+    <string name="efun_ui_button_retrieve">Ambil kembali password</string>
     <string name="efun_ui_button_register_text_1">Belum punya akun?</string>
     <string name="efun_ui_button_register_text_2">Segera daftar</string>
-    <string name="efun_ui_button_register_btn">Daftar</string>
+    <string name="efun_ui_button_register">Daftar</string>
+    <string name="efun_ui_button_bind">Mengikat akun</string>
+    <string name="efun_ui_button_bind_fb">Mengikat Facebook</string>
+    <string name="efun_ui_button_bind_mac">Mengikat akun Play Now</string>
 
 </resources>

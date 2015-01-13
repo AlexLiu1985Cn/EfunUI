@@ -16,19 +16,19 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-public class LoginView extends EfunBasePageLayout {
+public class EfunLoginView extends EfunBasePageLayout {
 
 	private Map<String, Button> mBtns;
 	private String[] mBtnTags;
 	private Context mContext;
 
-	private LoginView(Context context, AttributeSet attrs) {
+	private EfunLoginView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		mBtns = new HashMap<String, Button>();
 		mContext = context;
 	}
 
-	private LoginView(Context context) {
+	private EfunLoginView(Context context) {
 		super(context);
 		mBtns = new HashMap<String, Button>();
 		mContext = context;
@@ -93,7 +93,7 @@ public class LoginView extends EfunBasePageLayout {
 	public static class LoginViewBuilder {
 
 		private Context mContext;
-		private LoginView mLoginView;
+		private EfunLoginView mLoginView;
 
 		public LoginViewBuilder(Context context) {
 			mContext = context;
@@ -110,8 +110,8 @@ public class LoginView extends EfunBasePageLayout {
 			return this;
 		}
 
-		public LoginView build() {
-			LoginView loginView;
+		public EfunLoginView build() {
+			EfunLoginView loginView;
 			checkMember(mContext);
 			mLoginView.invalide(mContext);
 			loginView = mLoginView;
@@ -121,7 +121,7 @@ public class LoginView extends EfunBasePageLayout {
 
 		private void checkMember(Context context) {
 			if (mLoginView == null) {
-				mLoginView = new LoginView(context);
+				mLoginView = new EfunLoginView(context);
 			}
 		}
 	}

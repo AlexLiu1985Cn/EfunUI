@@ -87,7 +87,7 @@ public class EfunRegistView extends EfunBasePageLayout {
 				new ButtonViewConfiguration()
 						.setButtonType(
 								ButtonViewConfiguration.BUTTON_TYPE_RIGHT)
-						.setContentName("efun_ui_button_register_btn")
+						.setContentName("efun_ui_button_register")
 						.setRightResouceName("efun_ui_button_right_arrow")
 						.setBackgroundResourceName("efun_ui_btn_selecter")
 						.setRightSize(new int[] { height, height })).build();
