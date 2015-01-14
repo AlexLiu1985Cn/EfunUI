@@ -1,5 +1,8 @@
 package com.efun.os.ui.fragments;
 
+import com.efun.os.control.EfunSdkManager;
+import com.efun.os.ui.EfunPageContainer;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,12 +15,14 @@ abstract public class EfunBaseFragment extends Fragment {
 
 	protected FragmentManager mFm;
 	protected Context mContext;
+	protected EfunSdkManager mSdkManager;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		mFm = getActivity().getSupportFragmentManager();
 		mContext = getActivity();
+		mSdkManager = ((EfunPageContainer)mContext).getSdkManager();
 	}
 
 	@Override

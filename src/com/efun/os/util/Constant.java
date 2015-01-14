@@ -2,6 +2,15 @@ package com.efun.os.util;
 
 public class Constant {
 
+	public static final String PLAT_FORM = "android";
+
+	public static class Platform {
+		public static final String MAC = "mac";
+		public static final String FB = "fb";
+		public static final String TWITTER = "twitter";
+		public static final String GOOGLE = "google";
+	}
+
 	public static class ViewSize {
 		public static final double[] LOGO_HEIGHT = { 0.35, 0.2 };
 		public static final double[] LOGO_WIDTH = { 2.099447513812155,

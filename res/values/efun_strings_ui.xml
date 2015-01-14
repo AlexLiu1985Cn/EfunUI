@@ -25,5 +25,12 @@
     <string name="efun_ui_button_bind">Mengikat akun</string>
     <string name="efun_ui_button_bind_fb">Mengikat Facebook</string>
     <string name="efun_ui_button_bind_mac">Mengikat akun Play Now</string>
+    <string name="efun_ui_button_login_facebook">Login dengan akun Facebook</string>
+    <string name="efun_ui_button_login_mac">Game dimulai</string>
+    <string name="efun_ui_button_login_efun">Login dengan akun biasa</string>
+    
+    <!-- sdk -->
+    <string name="efun_sdk_progress_msg">Proses&#8230;</string>
+    <string name="efun_sdk_notify_internet_time_out">connection to server timed out</string>
 
 </resources>

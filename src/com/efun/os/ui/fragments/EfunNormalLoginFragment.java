@@ -1,6 +1,6 @@
 package com.efun.os.ui.fragments;
 
-import com.efun.os.ui.PageContainer;
+import com.efun.os.ui.EfunPageContainer;
 import com.efun.os.ui.view.EfunNormalLoginView;
 
 import android.os.Bundle;
@@ -39,16 +39,16 @@ public class EfunNormalLoginFragment extends EfunBaseFragment implements OnClick
 			Log.d("alex", "login");
 		}else if(paramView == mEfunLoginView.getRegisterBtn()){
 			Log.d("alex", "regist");
-			((PageContainer)getActivity()).startFragment(new EfunRegistFragment(), PageContainer.TAG_EFUN_REGIST);
+			((EfunPageContainer)getActivity()).startFragment(new EfunRegistFragment(), EfunPageContainer.TAG_EFUN_REGIST);
 		}else if(paramView == mEfunLoginView.getResetBtn()){
 			Log.d("alex", "reset");
-			((PageContainer)getActivity()).startFragment(new EfunResetPasswordFragment(), PageContainer.TAG_EFUN_RESET);
+			((EfunPageContainer)getActivity()).startFragment(new EfunResetPasswordFragment(), EfunPageContainer.TAG_EFUN_RESET);
 		}else if(paramView == mEfunLoginView.getRetrieveBtn()){
 			Log.d("alex", "retrieve");
-			((PageContainer)getActivity()).startFragment(new EfunRtrievePasswordFragment(), PageContainer.TAG_EFUN_RETRIEVE);
+			((EfunPageContainer)getActivity()).startFragment(new EfunRtrievePasswordFragment(), EfunPageContainer.TAG_EFUN_RETRIEVE);
 		}else if(paramView == mEfunLoginView.getBindBtn()){
 			Log.d("alex", "bind");
-			((PageContainer)getActivity()).startFragment(new EfunBindAccountFragment(), PageContainer.TAG_EFUN_BIND);
+			((EfunPageContainer)getActivity()).startFragment(new EfunBindAccountFragment(), EfunPageContainer.TAG_EFUN_BIND);
 		}else if(paramView == mEfunLoginView.getTitleView().getBackButton()){
 			Log.d("alex", "back");
 			finishFragment();

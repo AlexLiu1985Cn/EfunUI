@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.efun.core.tools.EfunResourceUtil;
+import com.efun.os.ui.view.base.EfunBaseButtonView;
+import com.efun.os.ui.view.base.EfunBaseButtonView.ButtonViewConfiguration;
 import com.efun.os.ui.view.base.EfunBasePageLayout;
 import com.efun.os.ui.view.base.EfunBaseTitleView;
 import com.efun.os.util.Constant;
@@ -12,28 +14,27 @@ import android.content.Context;
 import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.Gravity;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 public class EfunLoginView extends EfunBasePageLayout {
 
-	private Map<String, Button> mBtns;
+	private Map<String, EfunBaseButtonView> mBtns;
 	private String[] mBtnTags;
 	private Context mContext;
 
 	private EfunLoginView(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		mBtns = new HashMap<String, Button>();
+		mBtns = new HashMap<String, EfunBaseButtonView>();
 		mContext = context;
 	}
 
 	private EfunLoginView(Context context) {
 		super(context);
-		mBtns = new HashMap<String, Button>();
+		mBtns = new HashMap<String, EfunBaseButtonView>();
 		mContext = context;
 	}
-	
+
 	public void invalide(Context context) {
 		int height = 0;
 		ImageView logoIV = new ImageView(this.mContext);
@@ -66,7 +67,7 @@ public class EfunLoginView extends EfunBasePageLayout {
 		}
 	}
 
-	public Map<String, Button> getViewButtons() {
+	public Map<String, EfunBaseButtonView> getViewButtons() {
 		return mBtns;
 	}
 
@@ -102,10 +103,16 @@ public class EfunLoginView extends EfunBasePageLayout {
 		public LoginViewBuilder setLoginButtons(String[] btnTags) {
 			checkMember(mContext);
 			mLoginView.setButtonTags(btnTags);
+			EfunBaseButtonView.ButtonBuilder buttonBuilder = new EfunBaseButtonView.ButtonBuilder(
+					mContext);
 			for (int i = 0; i < btnTags.length; i++) {
-				Button btn = new Button(mContext);
-				btn.setText(btnTags[i]);
-				mLoginView.getViewButtons().put(btnTags[i], btn);
+				EfunBaseButtonView button = buttonBuilder
+						.setButtonBackGorundResource("efun_ui_btn_selecter")
+						.setButtonContentName(btnTags[i])
+						.setButtonType(
+								ButtonViewConfiguration.BUTTON_TYPE_RIGHT)
+						.build();
+				mLoginView.getViewButtons().put(btnTags[i], button);
 			}
 			return this;
 		}
