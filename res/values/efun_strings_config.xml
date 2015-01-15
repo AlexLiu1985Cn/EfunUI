@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 登录监听的类类名 -->
+    <string name="efun_strings_config_LoginListenerName">com.efun.os.listeners.SdkListener</string>
+    <!-- 事件监听 -->
+    <string name="efun_strings_conifg_EventListenerName">com.efun.os.listeners.EventListener</string>
+
+</resources>
